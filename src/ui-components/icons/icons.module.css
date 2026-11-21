@@ -1,0 +1,36 @@
+.tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  color: var(--color-navy-900);
+}
+
+.sm {
+  width: 36px;
+  height: 36px;
+}
+
+.md {
+  width: 48px;
+  height: 48px;
+}
+
+.lg {
+  width: 64px;
+  height: 64px;
+}
+
+.lavender {
+  background: var(--color-lavender);
+}
+
+.white {
+  background: var(--color-white);
+}
+
+.navy {
+  background: var(--color-navy-900);
+  color: var(--color-white);
+}

@@ -1,0 +1,79 @@
+/* Step indicator */
+
+.steps {
+  display: flex;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  text-align: center;
+}
+
+/* connector line */
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: calc(50% + 24px);
+  right: calc(-50% + 24px);
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-hairline);
+}
+
+.step.done:not(:last-child)::after {
+  background: var(--color-navy-900);
+}
+
+.circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  transition: var(--transition-base);
+}
+
+.todo .circle {
+  background: var(--color-lavender);
+  color: var(--color-navy-600);
+}
+
+.active .circle {
+  background: var(--color-navy-900);
+  color: var(--color-white);
+  box-shadow: 0 0 0 4px var(--color-lavender-200);
+}
+
+.done .circle {
+  background: var(--color-navy-900);
+  color: var(--color-white);
+}
+
+.stepLabel {
+  font-size: 13px;
+  color: var(--color-navy-600);
+}
+
+.active .stepLabel {
+  color: var(--color-navy-900);
+  font-weight: var(--font-weight-semibold);
+}
+
+@media (max-width: 576px) {
+  .stepLabel {
+    display: none;
+  }
+}

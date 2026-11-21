@@ -1,0 +1,189 @@
+/* ==========================================================================
+   Buttons — spec: 03 BUTTONS (Primary · Secondary · Ghost · Lavender soft · Icon)
+   States: Default · Hover · Disabled · Loading
+   ========================================================================== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: var(--transition-base);
+}
+
+.button:focus-visible {
+  box-shadow: var(--shadow-focus);
+}
+
+/* ---------- Sizes ---------- */
+
+.sm {
+  height: var(--control-height-sm);
+  padding-inline: 18px;
+  font-size: var(--font-size-sm);
+}
+
+.md {
+  height: var(--control-height);
+  padding-inline: 24px;
+  font-size: 15px;
+}
+
+.lg {
+  height: var(--control-height-lg);
+  padding-inline: 30px;
+  font-size: var(--font-size-base);
+}
+
+.block {
+  width: 100%;
+}
+
+/* ---------- Primary · navy ---------- */
+
+.primary {
+  background: var(--color-navy-900);
+  color: var(--color-white);
+}
+
+.primary:hover,
+.primary.isHover {
+  background: var(--color-navy-800);
+  color: var(--color-white);
+  box-shadow: 0 8px 20px rgba(15, 30, 74, 0.22);
+}
+
+/* ---------- Secondary · navy outline ---------- */
+
+.secondary {
+  background: var(--color-white);
+  border-color: var(--color-navy-900);
+  color: var(--color-navy-900);
+}
+
+.secondary:hover,
+.secondary.isHover {
+  background: var(--color-lavender);
+  color: var(--color-navy-900);
+}
+
+/* ---------- Ghost · text only ---------- */
+
+.ghost {
+  background: transparent;
+  color: var(--color-navy-900);
+}
+
+.ghost:hover,
+.ghost.isHover {
+  background: var(--color-lavender);
+  color: var(--color-navy-900);
+}
+
+/* ---------- Lavender soft ---------- */
+
+.soft {
+  background: var(--color-lavender);
+  color: var(--color-navy-900);
+}
+
+.soft:hover,
+.soft.isHover {
+  background: var(--color-lavender-200);
+  color: var(--color-navy-900);
+}
+
+/* ---------- Disabled (all variants) ---------- */
+
+.button:disabled:not(.loading) {
+  background: var(--color-disabled-bg);
+  border-color: transparent;
+  color: var(--color-disabled-text);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* ---------- Loading · white with navy outline + spinner ---------- */
+
+.loading,
+.loading:hover {
+  background: var(--color-white);
+  border-color: var(--color-navy-900);
+  color: var(--color-navy-900);
+  box-shadow: none;
+  cursor: progress;
+}
+
+.spinner {
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   Icon button — round, hairline border
+   ========================================================================== */
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  color: var(--color-navy-900);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.iconButton.sm {
+  width: 32px;
+  height: 32px;
+}
+
+.iconButton.md {
+  width: var(--control-height-sm);
+  height: var(--control-height-sm);
+}
+
+.iconButton.lg {
+  width: var(--control-height);
+  height: var(--control-height);
+}
+
+.iconButton:hover,
+.iconButton.isHover {
+  background: var(--color-lavender);
+  border-color: var(--color-lavender);
+}
+
+.iconButton.filled {
+  background: var(--color-navy-900);
+  border-color: var(--color-navy-900);
+  color: var(--color-white);
+}
+
+.iconButton.filled:hover {
+  background: var(--color-navy-800);
+}
+
+.iconButton:disabled {
+  background: var(--color-disabled-bg);
+  border-color: transparent;
+  color: var(--color-disabled-text);
+  cursor: not-allowed;
+}

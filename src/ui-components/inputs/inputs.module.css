@@ -1,0 +1,188 @@
+/* ==========================================================================
+   Inputs — spec: 04 INPUTS · RADIUS 14 · VISIBLE LABELS ALWAYS
+   Ant Design controls are themed in src/theme/themeConfig.js;
+   this file adds labels, messages and the success / forced-focus states.
+   ========================================================================== */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-navy-900);
+}
+
+.required {
+  color: var(--color-emergency);
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-navy-600);
+}
+
+/* ---------- Error ---------- */
+
+.error .message {
+  color: var(--color-emergency);
+}
+
+/* ---------- Success (antd has no success status for inputs) ---------- */
+
+.success .message {
+  color: var(--color-success);
+}
+
+.success :global(.ant-input-outlined),
+.success :global(.ant-input-affix-wrapper),
+.success :global(.ant-select-outlined),
+.success :global(.ant-picker-outlined) {
+  border-color: var(--color-success);
+}
+
+.success :global(.ant-input-outlined:focus),
+.success :global(.ant-input-outlined:focus-within) {
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 3px rgba(31, 157, 107, 0.15);
+}
+
+/* ---------- Forced focus (Focus.js) — 3px violet halo ---------- */
+
+.isFocus :global(.ant-input-outlined),
+.isFocus :global(.ant-input-affix-wrapper) {
+  border-color: var(--color-violet);
+  box-shadow: var(--shadow-focus);
+}
+
+/* ---------- Phone (country code + number) ---------- */
+
+.phone {
+  display: flex;
+  width: 100%;
+}
+
+.phone :global(.ant-select) {
+  width: 110px;
+  flex-shrink: 0;
+}
+
+.phone :global(.ant-input) {
+  flex: 1;
+}
+
+/* ---------- Leading icon colour ---------- */
+
+.prefixIcon {
+  color: var(--color-navy-400);
+  margin-right: 4px;
+}
+
+/* ---------- Checkbox / Toggle rows ---------- */
+
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 15px;
+  color: var(--color-navy-900);
+  cursor: pointer;
+}
+
+.choice :global(.ant-checkbox-inner) {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- Radio cards ---------- */
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.radioGroup.horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.radioGroup.horizontal .radioCard {
+  flex: 1 1 200px;
+}
+
+.radioCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: 14px 16px;
+  border: 1.5px solid var(--color-hairline);
+  border-radius: var(--radius-input);
+  background: var(--color-white);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.radioCard:hover {
+  border-color: var(--color-lavender-300);
+}
+
+.radioCard.selected {
+  border-color: var(--color-violet);
+  background: var(--color-lavender-50);
+}
+
+.radioCard input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.radioCard:has(input:focus-visible) {
+  box-shadow: var(--shadow-focus);
+}
+
+.radioDot {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  border: 1.5px solid var(--color-navy-400);
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  transition: var(--transition-base);
+}
+
+.selected .radioDot {
+  border: 6px solid var(--color-navy-900);
+}
+
+.radioText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.radioTitle {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-navy-900);
+}
+
+.radioDescription {
+  font-size: var(--font-size-sm);
+  color: var(--color-navy-600);
+}
+
+/* ---------- Textarea counter ("46 / 500") sits below the box ---------- */
+
+.textarea {
+  padding-bottom: 22px;
+}
