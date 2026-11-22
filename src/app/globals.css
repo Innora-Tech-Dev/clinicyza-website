@@ -1,6 +1,6 @@
 /* ==========================================================================
    Clinicyza — Global Design Tokens & Base Styles
-   Source of truth: clinicyza-ui-design.pdf (Design System v1.0)
+   Source of truth: Clinicyza Build Specification §2 (wins over clinicyza-ui-design.pdf)
    --------------------------------------------------------------------------
    Fonts, sizes, weights, colors, spacing, radius, shadows, motion.
    Ant Design reads matching values from src/theme/themeConfig.js —
@@ -32,8 +32,11 @@
   --color-lavender-300: #d4b8fc;
   --color-lavender-50: #faf6ff;
 
-  /* Lines */
+  /* Lines & canvas */
   --color-hairline: #e9e4f5;
+  --color-canvas: #f8f6fc;           /* admin / doctor page background */
+  --color-canvas-patient: #fbf8ff;   /* patient portal page background */
+  --color-muted: #5b6590;            /* helper text */
 
   /* Status */
   --color-success: #1f9d6b;
@@ -42,6 +45,20 @@
   --color-warning-bg: #fdf3e2;
   --color-emergency: #d63b4b;
   --color-emergency-bg: #fbe9eb;
+  --color-danger: var(--color-emergency);
+  --color-danger-bg: var(--color-emergency-bg);
+  --color-info: #3b7be0;
+  --color-info-bg: #e7effc;
+  --color-neutral: #8a8fa8;
+  --color-neutral-bg: #eeeff4;
+  /* Status colours are never used alone — always pair with an icon + label. */
+
+  /* Chart series order: navy → violet → lavender-300 → success → warning */
+  --chart-1: #0f1e4a;
+  --chart-2: #6d4ae0;
+  --chart-3: #d4b8fc;
+  --chart-4: #1f9d6b;
+  --chart-5: #e8a33d;
 
   /* Disabled */
   --color-disabled-bg: #ecebf2;
@@ -54,7 +71,7 @@
   /* Semantic aliases (use these in components) */
   --color-text: var(--color-navy-900);
   --color-text-secondary: var(--color-navy-600);
-  --color-text-muted: var(--color-navy-400);
+  --color-text-muted: var(--color-muted);
   --color-text-inverse: var(--color-white);
   --color-heading: var(--color-navy-900);
   --color-link: var(--color-violet);
@@ -69,7 +86,7 @@
   /* ======================= TYPOGRAPHY ======================= */
 
   /* Families (CSS vars injected by next/font in app/layout.js) */
-  --font-family-heading: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-family-heading: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
   --font-family-body: var(--font-inter), "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-family-accent: var(--font-instrument), "Instrument Serif", Georgia, serif;
 
@@ -90,6 +107,17 @@
   --line-height-body: 1.6;
   --line-height-tight: 1.2;
 
+  /* Portal scale (spec §2): page title 28/36, section 18/26, body 14/20, table 13/18 */
+  --font-size-page-title: 28px;
+  --line-height-page-title: 36px;
+  --font-size-section-title: 18px;
+  --line-height-section-title: 26px;
+  --font-size-portal-body: 14px;
+  --line-height-portal-body: 20px;
+  --font-size-patient-body: 15px;
+  --font-size-table: 13px;
+  --line-height-table: 18px;
+
   /* Weights */
   --font-weight-regular: 400;
   --font-weight-medium: 500;
@@ -102,16 +130,17 @@
 
   /* Tracking */
   --letter-spacing-heading: -0.025em;   /* −2.5% */
-  --letter-spacing-eyebrow: 0.14em;
+  --letter-spacing-eyebrow: 0.08em;
 
   /* ======================= SHAPE ======================= */
 
   --radius-xs: 6px;
   --radius-sm: 10px;
-  --radius-input: 14px;      /* inputs, selects, textareas */
-  --radius-md: 14px;
-  --radius-card: 20px;       /* cards */
-  --radius-lg: 20px;
+  --radius-input: 12px;      /* inputs, selects, textareas (spec 10-12) */
+  --radius-md: 12px;
+  --radius-card: 16px;       /* cards */
+  --radius-card-patient: 20px; /* patient portal cards */
+  --radius-lg: 16px;
   --radius-xl: 28px;
   --radius-full: 9999px;     /* buttons, pills, badges */
 
@@ -147,6 +176,9 @@
   --control-height-sm: 40px;   /* small button / icon button */
   --control-height: 48px;      /* default button & input */
   --control-height-lg: 56px;   /* large button */
+  --tap-target-min: 44px;      /* mobile tap targets 44-48px */
+  --table-row-comfortable: 56px;
+  --table-row-compact: 40px;
   --icon-size: 24px;           /* 24px grid */
   --icon-stroke: 1.75;         /* 1.75px stroke */
 
@@ -155,6 +187,8 @@
   --container-max-width: 1200px;
   --container-padding: 24px;
   --navbar-height: 76px;
+  --sidebar-width: 272px;
+  --sidebar-width-collapsed: 76px;
   --section-padding-y: 96px;
 
   /* ======================= MOTION ======================= */
@@ -242,13 +276,13 @@ h6 {
 h1 {
   font-size: var(--font-size-h1);
   line-height: var(--line-height-h1);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
 }
 
 h2 {
   font-size: var(--font-size-h2);
   line-height: var(--line-height-h2);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
 }
 
 h3 {
@@ -433,4 +467,9 @@ hr {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Money, times and IDs use tabular figures (spec §2) */
+.tabular {
+  font-variant-numeric: tabular-nums;
 }

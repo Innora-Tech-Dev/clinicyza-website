@@ -1,11 +1,11 @@
-import { Inter, Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
+import { Inter, Space_Grotesk, Instrument_Serif } from "next/font/google";
 import AntdProvider from "@/providers/AntdProvider";
 import { SITE } from "@/constants/constants";
 import "./globals.css";
 
-// Headings — Plus Jakarta Sans 600/700
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+// Headings — Space Grotesk 600 (spec §2)
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   weight: ["600", "700"],
   display: "swap",
@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang={SITE.locale}
-      className={`${jakarta.variable} ${inter.variable} ${instrument.variable}`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${instrument.variable}`}
     >
       <body>
         <AntdProvider>{children}</AntdProvider>

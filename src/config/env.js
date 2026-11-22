@@ -8,7 +8,7 @@
 
 export const env = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3001",
-  apiBaseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5050/api/v1",
+  apiBaseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000/api/v1",
   portalUrl: process.env.NEXT_PUBLIC_PORTAL_URL || "http://localhost:3002",
   gaMeasurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "",
 };

@@ -1,6 +1,6 @@
 /**
  * Global Ant Design theme — mirrors the CSS variables in src/app/globals.css.
- * Source: clinicyza-ui-design.pdf (Design System v1.0). Keep both files in sync.
+ * Source: Clinicyza Build Specification §2. Keep both files in sync.
  * Docs: https://ant.design/docs/react/customize-theme
  */
 
@@ -16,9 +16,14 @@ export const colors = {
   violet: "#6D4AE0",
   violetHalo: "rgba(109, 74, 224, 0.18)",
   hairline: "#E9E4F5",
+  canvas: "#F8F6FC",
+  canvasPatient: "#FBF8FF",
+  muted: "#5B6590",
   success: "#1F9D6B",
   warning: "#E8A33D",
   emergency: "#D63B4B",
+  info: "#3B7BE0",
+  neutral: "#8A8FA8",
   disabledBg: "#ECEBF2",
   disabledText: "#A4A9C2",
 };
@@ -27,8 +32,8 @@ const focusHalo = `0 0 0 3px ${colors.violetHalo}`;
 
 // Shared tokens for every text-like input (Input, Select, DatePicker, InputNumber…)
 const inputTokens = {
-  borderRadius: 14,
-  borderRadiusLG: 14,
+  borderRadius: 12,
+  borderRadiusLG: 12,
   borderRadiusSM: 10,
   activeBorderColor: colors.violet,
   hoverBorderColor: colors.lavender300,
@@ -53,7 +58,7 @@ const themeConfig = {
 
     colorText: colors.navy,
     colorTextSecondary: colors.navy600,
-    colorTextTertiary: colors.navy400,
+    colorTextTertiary: colors.muted,
     colorTextQuaternary: colors.disabledText,
     colorTextPlaceholder: colors.navy400,
     colorTextHeading: colors.navy,
@@ -82,9 +87,9 @@ const themeConfig = {
     lineHeight: 1.6,
 
     // Shape
-    borderRadius: 14,
+    borderRadius: 12,
     borderRadiusSM: 10,
-    borderRadiusLG: 20,
+    borderRadiusLG: 16,
     borderRadiusXS: 6,
 
     // Size
@@ -137,14 +142,14 @@ const themeConfig = {
     Collapse: {
       headerBg: colors.white,
       contentBg: colors.white,
-      borderRadiusLG: 20,
+      borderRadiusLG: 16,
     },
     Tooltip: {
       colorBgSpotlight: colors.navy,
       borderRadius: 10,
     },
     Modal: {
-      borderRadiusLG: 20,
+      borderRadiusLG: 16,
       titleFontSize: 20,
     },
     Breadcrumb: {

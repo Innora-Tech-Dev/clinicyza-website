@@ -108,7 +108,14 @@ export const COUNTRIES = [
   { value: "AT", label: "Austria", dialCode: "+43" },
 ];
 
-export const LANGUAGES = ["IT", "EN", "FR", "ES", "DE", "PT"];
+/* Platform languages (spec §1). Used for consultation language, not site translation. */
+export const LANGUAGES = ["EN", "IT", "FR", "ES", "DE"];
+
+/* Shown across the product (spec §1) */
+export const EMERGENCY = {
+  number: "112",
+  line: "Medical emergency? Call 112. Clinicyza is for non-urgent care.",
+};
 
 /* ---------- Storage keys ---------- */
 export const STORAGE_KEYS = {
